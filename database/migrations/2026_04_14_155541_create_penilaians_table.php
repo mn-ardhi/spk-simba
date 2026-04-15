@@ -6,23 +6,25 @@ use Illuminate\Support\Facades\Schema;
 
 return new class extends Migration
 {
-    /**
-     * Run the migrations.
-     */
     public function up(): void
     {
         Schema::create('penilaians', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('mahasiswa_id')->constrained()->cascadeOnDelete(); // Relasi ke pendaftar
-            $table->foreignId('kriteria_id')->constrained()->cascadeOnDelete(); // Relasi ke kriteria C1-C7
-            $table->double('nilai'); // Nilai mentah yang diinput Admin
+            $table->foreignId('mahasiswa_id')->constrained()->cascadeOnDelete();
+
+            // Wajib ada baris ini:
+            $table->integer('c1')->nullable();
+            $table->integer('c2')->nullable();
+            $table->integer('c3')->nullable();
+            $table->integer('c4')->nullable();
+            $table->integer('c5')->nullable();
+            $table->integer('c6')->nullable();
+            $table->integer('c7')->nullable();
+
             $table->timestamps();
         });
     }
 
-    /**
-     * Reverse the migrations.
-     */
     public function down(): void
     {
         Schema::dropIfExists('penilaians');

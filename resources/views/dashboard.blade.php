@@ -3,5 +3,7 @@
         
         <livewire:form-pendaftaran />
 
+        <livewire:admin-pendaftar />
+
     </div>
 </x-layouts::app>
