@@ -7,5 +7,6 @@
         
         <livewire:admin-hasil-seleksi />
 
+        <livewire:admin-dashboard />
     </div>
 </x-layouts::app>

@@ -6,6 +6,7 @@ use Livewire\Component;
 use App\Models\HasilSeleksi;
 use App\Models\Periode;
 use App\Services\SawCalculationService; // Memanggil mesin kalkulator
+use Barryvdh\DomPDF\Facade\Pdf; // memanggil fungsi cetak laporan pdf
 
 class AdminHasilSeleksi extends Component
 {
@@ -48,5 +49,33 @@ class AdminHasilSeleksi extends Component
             'hasilSeleksi' => $hasilSeleksi,
             'periode' => $periodeAktif
         ]);
+    }
+    public function cetakPDF()
+    {
+        $periodeAktif = Periode::where('is_aktif', true)->first();
+
+        if (!$periodeAktif) return;
+
+        // Ambil data hasil seleksi terbaru
+        $data = HasilSeleksi::with('mahasiswa')
+            ->whereHas('mahasiswa', function ($q) use ($periodeAktif) {
+                $q->where('periode_id', $periodeAktif->id);
+            })
+            ->orderBy('peringkat', 'asc')
+            ->get();
+
+        // Siapkan data untuk dikirim ke view PDF
+        $pdfContent = [
+            'title' => 'Laporan Hasil Seleksi Beasiswa KIP Kuliah',
+            'date' => date('d/m/Y'),
+            'periode' => $periodeAktif->nama_periode,
+            'hasil' => $data
+        ];
+
+        // Load view khusus PDF dan download
+        $pdf = Pdf::loadView('reports.hasil-seleksi-pdf', $pdfContent);
+        return response()->streamDownload(function () use ($pdf) {
+            echo $pdf->stream();
+        }, 'Laporan_KIP_' . $periodeAktif->nama_periode . '.pdf');
     }
 }
