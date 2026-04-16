@@ -40,4 +40,9 @@ class Penilaian extends Model
             $table->timestamps();
         });
     }
+    // 2. Jembatan Relasi 
+    public function mahasiswa()
+    {
+        return $this->belongsTo(Mahasiswa::class);
+    }
 }

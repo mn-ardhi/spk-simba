@@ -4,6 +4,8 @@
         <livewire:form-pendaftaran />
 
         <livewire:admin-pendaftar />
+        
+        <livewire:admin-hasil-seleksi />
 
     </div>
 </x-layouts::app>
