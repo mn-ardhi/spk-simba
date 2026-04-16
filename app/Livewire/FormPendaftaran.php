@@ -56,7 +56,7 @@ class FormPendaftaran extends Component
 
         // 4. Simpan ke Database
         Mahasiswa::create([
-            'user_id' => Auth::id(),
+            'user_id' => Auth::id(), //mengambil id pengguna yg sedang login
             'periode_id' => $periodeAktif->id,
             'nim' => $this->nim,
             'prodi' => $this->prodi,
