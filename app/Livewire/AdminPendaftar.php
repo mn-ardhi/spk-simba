@@ -109,6 +109,6 @@ class AdminPendaftar extends Component
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('livewire.admin-pendaftar', ['mahasiswas' => $mahasiswas, 'periode' => $periodeAktif]);
+        return view('livewire.admin-pendaftar', ['mahasiswas' => $mahasiswas, 'periode' => $periodeAktif])->layout('layouts.admin');
     }
 }

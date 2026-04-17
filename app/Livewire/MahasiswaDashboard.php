@@ -23,6 +23,6 @@ class MahasiswaDashboard extends Component
         return view('livewire.mahasiswa-dashboard', [
             'mahasiswa' => $mahasiswa,
             'hasil' => $hasilSeleksi
-        ]);
+        ])->layout('layouts.mahasiswa');
     }
 }

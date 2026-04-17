@@ -48,7 +48,7 @@ class AdminHasilSeleksi extends Component
         return view('livewire.admin-hasil-seleksi', [
             'hasilSeleksi' => $hasilSeleksi,
             'periode' => $periodeAktif
-        ]);
+        ])->layout('layouts.admin');
     }
     public function cetakPDF()
     {

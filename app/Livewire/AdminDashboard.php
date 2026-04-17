@@ -38,6 +38,6 @@ class AdminDashboard extends Component
             'periode' => $periodeAktif,
             'stats' => $stats,
             'topMahasiswa' => $topMahasiswa
-        ]);
+        ])->layout('layouts.admin');
     }
 }
