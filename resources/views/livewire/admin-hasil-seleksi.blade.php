@@ -9,15 +9,15 @@
 
         <div>
             <button wire:click="hitungSAW" wire:loading.attr="disabled"
-                class="px-6 py-3 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-md transition flex items-center gap-2 focus:ring-4 focus:ring-indigo-300 dark:focus:ring-indigo-800">
+                class="flex items-center gap-2 px-6 py-3 font-bold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:ring-4 focus:ring-blue-500/50">
                 <span wire:loading.remove wire:target="hitungSAW">🧮 Jalankan Kalkulasi SAW</span>
                 <span wire:loading wire:target="hitungSAW">⏳ Sedang Menghitung...</span>
             </button>
 
         </div>
         <div>
-            <button wire:click="cetakPDF"
-                class="px-6 py-3 bg-red-600 hover:bg-red-700 text-white font-bold rounded-lg shadow-md flex items-center gap-2 transition">
+            <button wire:click="cetakPDF" wire:loading.attr="disabled"
+                class="flex items-center gap-2 px-6 py-3 font-bold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:ring-4 focus:ring-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed">
                 <span>🖨️ Cetak PDF</span>
             </button>
         </div>

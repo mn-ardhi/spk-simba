@@ -1,8 +1,12 @@
 <div class="p-6">
     <div class="mb-6">
         <h2 class="text-2xl font-bold text-gray-800 dark:text-gray-100">Dashboard Eksekutif Kemahasiswaan</h2>
-        <p class="text-gray-500 dark:text-gray-400">Ringkasan Sistem Seleksi Beasiswa KIP Kuliah - Periode: <span
-                class="font-bold text-blue-600">{{ $periode ? $periode->nama_periode : 'Tidak ada periode' }}</span></p>
+        <p class="text-gray-500 dark:text-gray-400">Ringkasan Sistem Seleksi Beasiswa KIP Kuliah - Periode:
+            <span
+                class="font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] tracking-wide">
+                {{ $periode ? $periode->nama_periode : 'Tidak ada periode' }}
+            </span>
+        </p>
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -42,7 +46,7 @@
         <div
             class="lg:col-span-2 bg-white dark:bg-gray-800 rounded-xl shadow-sm p-6 border border-gray-200 dark:border-gray-700">
             <h3 class="text-lg font-bold text-gray-800 dark:text-gray-100 mb-4 border-b pb-2 dark:border-gray-700">Top 5
-                Kandidat Terbaik (SAW)</h3>
+                Kandidat Terbaik</h3>
             <div class="overflow-x-auto">
                 <table class="w-full text-sm text-left text-gray-500 dark:text-gray-400">
                     <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300">

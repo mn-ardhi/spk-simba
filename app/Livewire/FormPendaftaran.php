@@ -36,7 +36,7 @@ class FormPendaftaran extends Component
         ]);
 
         // 2. Cek Periode Aktif
-        $periodeAktif = Periode::where('is_aktif', true)->first();
+        $periodeAktif = Periode::latest()->first();
         if (!$periodeAktif) {
             session()->flash('error', 'Periode pendaftaran belum dibuka.');
             return;

@@ -115,9 +115,9 @@
                         </svg>
                     </button>
                     <div
-                        class="text-lg font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400">
-                        SIMBA Admin</div>
-                </div>
+                        class="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] tracking-wide">
+                        SIMBA Admin
+                    </div>
             </header>
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-transparent relative z-10">

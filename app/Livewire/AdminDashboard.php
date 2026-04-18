@@ -11,7 +11,7 @@ class AdminDashboard extends Component
 {
     public function render()
     {
-        $periodeAktif = Periode::where('is_aktif', true)->first();
+        $periodeAktif = Periode::latest()->first();
 
         // Siapkan variabel kosong
         $stats = ['total' => 0, 'valid' => 0, 'ditolak' => 0, 'menunggu' => 0];

@@ -13,10 +13,10 @@ class AdminHasilSeleksi extends Component
     // Fungsi ini akan berjalan saat Admin menekan tombol "Hitung"
     public function hitungSAW(SawCalculationService $sawService)
     {
-        $periodeAktif = Periode::where('is_aktif', true)->first();
+        $periodeAktif = Periode::latest()->first();
 
         if (!$periodeAktif) {
-            session()->flash('error', 'Kalkulasi gagal: Tidak ada periode aktif.');
+            session()->flash('error', 'Kalkulasi gagal: Belum ada data periode di database.');
             return;
         }
 
@@ -32,7 +32,7 @@ class AdminHasilSeleksi extends Component
 
     public function render()
     {
-        $periodeAktif = Periode::where('is_aktif', true)->first();
+        $periodeAktif = Periode::latest()->first();
         $hasilSeleksi = [];
 
         if ($periodeAktif) {

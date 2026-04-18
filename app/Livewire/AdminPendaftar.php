@@ -95,7 +95,7 @@ class AdminPendaftar extends Component
 
     public function render()
     {
-        $periodeAktif = Periode::where('is_aktif', true)->first();
+        $periodeAktif = Periode::latest()->first();
 
         if (!$periodeAktif) {
             return view('livewire.admin-pendaftar', ['mahasiswas' => collect([]), 'periode' => null]);

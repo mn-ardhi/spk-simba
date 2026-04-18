@@ -51,7 +51,7 @@
                         </td>
                         <td class="px-6 py-4 text-right">
                             <button wire:click="bukaPanel({{ $mhs->id }})"
-                                class="text-white bg-blue-600 hover:bg-blue-700 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-4 py-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:outline-none focus:ring-4 focus:ring-blue-500/50">
                                 Buka Panel
                             </button>
                         </td>
@@ -67,8 +67,8 @@
     </div>
     @if ($periode)
         <div class="mt-4">
-        {{ $mahasiswas->links() }}
-    </div>
+            {{ $mahasiswas->links() }}
+        </div>
     @endif
     @if ($isModalOpen)
         <div class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-60 transition-opacity p-4">
@@ -171,7 +171,8 @@
                                             placeholder="Skor 1-100">
                                     </div>
                                     <div class="md:col-span-2">
-                                        <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300">C7 -
+                                        <label class="block text-xs font-semibold text-gray-700 dark:text-gray-300">C7
+                                            -
                                             Nilai Kepesantrenan</label>
                                         <input type="number" wire:model="c7"
                                             class="mt-1 w-full text-sm rounded-md shadow-sm border-gray-300 dark:bg-gray-600 dark:border-gray-500 dark:text-white"
