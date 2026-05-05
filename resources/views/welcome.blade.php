@@ -118,8 +118,8 @@
         <div class="relative max-w-5xl mx-auto px-4 text-center">
             <span
                 class="inline-block py-1 px-3 rounded-full bg-indigo-50 text-indigo-600 text-sm font-semibold mb-6 border border-indigo-100">Pendaftaran
-                (disini Periode Akitf)
-                Telah Dibuka</span>
+                Rekruitmen Baru Periode
+                {{ $periodeAktif?->nama_periode ?? 'Periode' }} Telah Dibuka </span>
             <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
                 Lanjutkan Cita-Cita Bersama <span class="text-indigo-600 bg-clip-text">KIP Kuliah</span>
             </h1>
@@ -154,7 +154,7 @@
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-red-100 shadow-sm border-l-4 border-l-red-500">
                     <h3 class="font-bold text-slate-900">2. Status Aktif</h3>
-                    <p class="text-sm text-slate-600 mt-2">Berstatus mahasiswa aktif dan sudah terdaftar di SIAKAD
+                    <p class="text-sm text-slate-600 mt-2">Berstatus Mahasiswa Baru & sudah terdaftar aktif di SIAKAD
                         Kampus.
                     </p>
                 </div>
@@ -279,8 +279,12 @@
                         </li>
                         <li class="flex items-start">
                             <span class="text-green-400 mr-2 mt-0.5">✔</span>
-                            <span class="text-sm text-slate-300">Pakta Integritas (Form 1) yang telah
-                                ditandatangani.</span>
+                            <span class="text-sm text-slate-300">Pakta Integritas
+                                <a href="{{ Storage::url('syarat/form-1.pdf') }}" download
+                                    class="text-slate-300 hover:underline font-medium">
+                                    (Form 1)
+                                </a>
+                                yang telah ditandatangani.</span>
                         </li>
                     </ul>
                 </div>
@@ -300,8 +304,14 @@
                         </li>
                         <li class="flex items-start">
                             <span class="text-yellow-400 mr-2 mt-0.5">✦</span>
-                            <span class="text-sm text-slate-300">Surat Keterangan Penghasilan (Form 4) jika tidak ada
-                                slip gaji.</span>
+                            <span class="text-sm text-slate-300">
+                                Surat Keterangan Penghasilan
+                                <a href="{{ Storage::url('syarat/form-4.pdf') }}" download
+                                    class="text-slate-300 hover:underline font-medium">
+                                    (Form 4)
+                                </a>
+                                jika tidak ada slip gaji.
+                            </span>
                         </li>
                     </ul>
                 </div>

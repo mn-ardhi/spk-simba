@@ -1,8 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Models\Periode;
 
-Route::view('/', 'welcome')->name('home');
+Route::get('/', function () {
+    $periodeAktif = Periode::where('is_aktif', true)->first();
+    return view('welcome', compact('periodeAktif'));
+})->name('home');
+
 
 // 1. POLISI LALU LINTAS (Gerbang Utama Setelah Login)
 Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
@@ -24,6 +29,10 @@ Route::middleware(['auth', 'verified'])->group(function () {
 Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-dashboard', \App\Livewire\AdminDashboard::class)->name('admin.dashboard');
     Route::get('/admin-pendaftar', \App\Livewire\AdminPendaftar::class)->name('admin.pendaftar');
+
+    // RUTE BARU: Halaman khusus penilaian mahasiswa berdasarkan ID
+    Route::get('/admin-pendaftar/penilaian/{id}', \App\Livewire\AdminPenilaian::class)->name('admin.penilaian');
+
     Route::get('/admin-hasil-seleksi', \App\Livewire\AdminHasilSeleksi::class)->name('admin.hasil');
 });
 
