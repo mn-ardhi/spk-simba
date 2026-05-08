@@ -34,6 +34,9 @@ Route::middleware(['auth', 'admin'])->group(function () {
     Route::get('/admin-pendaftar/penilaian/{id}', \App\Livewire\AdminPenilaian::class)->name('admin.penilaian');
 
     Route::get('/admin-hasil-seleksi', \App\Livewire\AdminHasilSeleksi::class)->name('admin.hasil');
-});
+
+    //RUTE UNTUK MASTER PERIODE
+    Route::get('/master-periode', \App\Livewire\MasterPeriode::class)->name('master.periode');
+    });
 
 require __DIR__ . '/settings.php';

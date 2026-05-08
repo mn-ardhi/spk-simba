@@ -6,8 +6,10 @@ use Livewire\Component;
 use Livewire\WithFileUploads;
 use App\Models\Mahasiswa;
 use App\Models\Periode;
+use Carbon\Carbon;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\Storage; 
+
 
 class FormPendaftaran extends Component
 {
@@ -126,7 +128,22 @@ class FormPendaftaran extends Component
     }
 
     public function render()
-    {
-        return view('livewire.form-pendaftaran')->layout('layouts.mahasiswa');
+{
+    $hariIni = Carbon::now();
+    
+    // Cari periode yang tanggalnya mencakup hari ini HANYA berdasarkan rentang waktu
+    $periodeAktif = Periode::where('tanggal_mulai', '<=', $hariIni)
+                           ->where('tanggal_akhir', '>=', $hariIni)
+                           ->latest()
+                           ->first();
+
+    // Jika ingin mengambil periode terbaru (walau belum buka) untuk menampilkan sisa hari:
+    if (!$periodeAktif) {
+        $periodeAktif = Periode::latest()->first();
     }
+
+    return view('livewire.form-pendaftaran', [
+        'periodeAktif' => $periodeAktif,
+    ])->layout('layouts.mahasiswa');
+}
 }

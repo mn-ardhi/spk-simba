@@ -1,4 +1,4 @@
-<x-layouts::auth :title="__('Register')">
+<x-layouts.guest>
     <div class="flex flex-col gap-6">
         <x-auth-header :title="__('Create an account')" :description="__('Enter your details below to create your account')" />
 
@@ -16,7 +16,7 @@
                 required
                 autofocus
                 autocomplete="name"
-                :placeholder="__('Full name')"
+                :placeholder="__('Short name')"
             />
 
             <!-- Email Address -->
@@ -64,4 +64,4 @@
             <flux:link :href="route('login')" wire:navigate>{{ __('Log in') }}</flux:link>
         </div>
     </div>
-</x-layouts::auth>
+</x-layouts.guest>

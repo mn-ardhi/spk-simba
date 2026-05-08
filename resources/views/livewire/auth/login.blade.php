@@ -1,5 +1,5 @@
-<x-layouts::auth :title="__('Log in')">
-    <div class="flex flex-col gap-6">
+<x-layouts.guest>
+        <div class="flex flex-col gap-6">
         <x-auth-header :title="__('Log in to your account')" :description="__('Enter your email and password below to log in')" />
 
         <!-- Session Status -->
@@ -56,4 +56,4 @@
             </div>
         @endif
     </div>
-</x-layouts::auth>
+</x-layouts.guest>

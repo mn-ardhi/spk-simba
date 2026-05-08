@@ -52,7 +52,7 @@
                             otomatis.</p>
                     </div>
 
-                    @if ($hasil)
+                    <!-- @if ($hasil)
                         <div
                             class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl shadow-lg p-6 text-white text-center">
                             <h4 class="text-sm uppercase tracking-wider font-semibold opacity-80 mb-2">Peringkat
@@ -71,6 +71,30 @@
                                     class="mt-4 inline-block bg-white text-gray-800 px-6 py-2 rounded-full font-bold shadow-sm opacity-80">
                                     Mohon maaf, peringkat Anda berada di luar kuota penerimaan.
                                 </div>
+                            @endif
+                        </div>
+                    @endif -->
+                    @if ($hasil)
+                        <div class="bg-gradient-to-r from-blue-600 to-indigo-700 rounded-xl shadow-lg p-6 text-white text-center">
+                            <h4 class="text-sm uppercase tracking-wider font-semibold opacity-80 mb-2">
+                                Peringkat Kelulusan Akhir
+                            </h4>
+                            <div class="text-6xl font-extrabold mb-2">#{{ $hasil->peringkat }}</div>
+                            <div class="text-lg font-medium opacity-90">
+                                Skor Kompetensi: <span class="font-mono font-bold">{{ number_format($hasil->skor_akhir, 4) }}</span>
+                            </div>
+
+                            {{-- Logika Dinamis Berdasarkan Kuota Periode --}}
+                            @if ($hasil->peringkat <= $mahasiswa->periode->kuota_penerima)
+                                <div class="mt-4 inline-block bg-white text-blue-800 px-6 py-2 rounded-full font-bold shadow-sm">
+                                    🎉 SELAMAT! ANDA DINYATAKAN LULUS BEASISWA
+                                </div>
+                                <p class="mt-2 text-xs opacity-75">* Anda masuk dalam kuota {{ $mahasiswa->periode->kuota_penerima }} penerima terbaik.</p>
+                            @else
+                                <div class="mt-4 inline-block bg-white text-gray-800 px-6 py-2 rounded-full font-bold shadow-sm opacity-80">
+                                    Mohon maaf, peringkat Anda berada di luar kuota penerimaan.
+                                </div>
+                                <p class="mt-2 text-xs opacity-75">* Kuota penerimaan periode ini adalah {{ $mahasiswa->periode->kuota_penerima }} orang.</p>
                             @endif
                         </div>
                     @endif

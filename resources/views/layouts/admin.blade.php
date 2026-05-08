@@ -35,7 +35,7 @@
                 </div>
             </div>
             <div class="text-blue-500/50 text-[10px] text-center mt-1 font-bold tracking-[0.2em] uppercase">Panel
-                KEMAHASISWAAN</div>
+                Beasiswa KIP K</div>
 
             <nav class="mt-10 px-4 space-y-3 flex-1">
                 <a href="{{ route('admin.dashboard') }}"
@@ -47,6 +47,17 @@
                         </path>
                     </svg>
                     <span class="mx-3 font-medium">Beranda Eksekutif</span>
+                </a>
+
+                <a href="{{ route('master.periode') }}"
+                    class="flex items-center px-4 py-3 group {{ request()->routeIs('master.periode') ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
+                    <svg class="w-5 h-5 {{ request()->routeIs('master.periode') ? 'text-white' : 'text-gray-500 group-hover:text-blue-400 transition-colors' }}"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z">
+                        </path>
+                    </svg>
+                    <span class="mx-3 font-medium">Master Periode</span>
                 </a>
 
                 <a href="{{ route('admin.pendaftar') }}"

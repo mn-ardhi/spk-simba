@@ -392,11 +392,27 @@
                     </div>
                 </div>
 
-                <button type="submit" @if (!$setuju_pernyataan) disabled @endif
-                    class="w-full py-5 rounded-2xl font-black text-xl uppercase tracking-widest transition-all duration-300 
-                    {{ $setuju_pernyataan ? 'bg-yellow-400 text-blue-900 hover:bg-yellow-300 hover:-translate-y-1 shadow-xl shadow-blue-900/50' : 'bg-slate-700 text-slate-500 cursor-not-allowed' }}">
-                    Kirim Data Pendaftaran
-                </button>
+                <div class="mt-8">
+                    @if($periodeAktif && $periodeAktif->status_otomatis)
+                        {{-- Tombol AKTIF jika periode valid --}}
+                        <button type="submit" @if (!$setuju_pernyataan) disabled @endif
+                            class="w-full py-5 rounded-2xl font-black text-xl uppercase tracking-widest transition-all duration-300 
+                            {{ $setuju_pernyataan ? 'bg-yellow-400 text-blue-900 hover:bg-yellow-300 hover:-translate-y-1 shadow-xl shadow-blue-900/50' : 'bg-slate-700 text-slate-500 cursor-not-allowed' }}">
+                            Kirim Data Pendaftaran
+                        </button>
+                    @else
+                        {{-- Tampilan jika pendaftaran TUTUP --}}
+                        <div class="bg-red-50 border-2 border-red-200 p-6 rounded-2xl text-center shadow-inner group">
+                            <div class="inline-flex items-center justify-center w-12 h-12 bg-red-100 text-red-600 rounded-full mb-3 group-hover:scale-110 transition-transform">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m0 0v2m0-2h2m-2 0H10m11 3a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                            </div>
+                            <p class="text-red-700 font-black text-xl uppercase italic">Akses Pendaftaran Ditutup</p>
+                            <p class="text-red-600 text-sm mt-1 font-medium italic opacity-80">
+                                Maaf, jadwal pendaftaran untuk periode ini belum tersedia atau telah berakhir.
+                            </p>
+                        </div>
+                    @endif
+                </div>
             </div>
 
             @if ($errors->any())

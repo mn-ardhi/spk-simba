@@ -60,6 +60,6 @@ class Mahasiswa extends Model
 
     public function periode(): BelongsTo
     {
-        return $this->belongsTo(Periode::class);
+        return $this->belongsTo(Periode::class, 'periode_id');
     }
 }
