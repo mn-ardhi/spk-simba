@@ -41,6 +41,7 @@ class Mahasiswa extends Model
         'status_berkas',
         'file_berkas',
         'bukti_sertifikat',
+        'catatan_admin', // Tambahkan field catatan_admin ke fillable
     ];
 
     protected $casts = [
@@ -51,6 +52,7 @@ class Mahasiswa extends Model
         'penghasilan_ortu' => 'integer',
         'nilai_ijazah' => 'decimal:2',
         'file_berkas' => 'array',
+        'catatan_admin' => 'string', // Tambahkan cast untuk catatan_admin
     ];
 
 
@@ -59,8 +61,23 @@ class Mahasiswa extends Model
         return $this->belongsTo(User::class);
     }
 
+    
+
+    /**
+     * Relasi ke tabel Periode (Ini wajib karena dipakai di Dashboard Mahasiswa)
+     */
     public function periode(): BelongsTo
     {
-        return $this->belongsTo(Periode::class, 'periode_id');
+        return $this->belongsTo(Periode::class);
+    }
+
+    /**
+     * Relasi ke tabel Hasil Seleksi (Untuk melihat skor dan peringkat)
+     */
+    public function hasilSeleksi()
+    {
+        // Pastikan model HasilSeleksi sudah ada ya!
+        return $this->hasOne(HasilSeleksi::class);
     }
 }
+

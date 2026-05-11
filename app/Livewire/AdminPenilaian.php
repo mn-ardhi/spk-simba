@@ -16,6 +16,7 @@ class AdminPenilaian extends Component
 
     // Properti Form
     public $status_berkas;
+    public $catatan_admin; // Tambahkan properti untuk catatan admin
     public $c1, $c2, $c3, $c4, $c5, $c6, $c7;
 
     public function mount($id)
@@ -28,7 +29,7 @@ class AdminPenilaian extends Component
 
         // Inisialisasi data status dari Mahasiswa
         $this->status_berkas = $this->mhs->status_berkas ?? 'menunggu';
-        
+        $this->catatan_admin = $this->mhs->catatan_admin ?? null;
         // Inisialisasi data nilai dari model Penilaian (bukan dari model Mahasiswa)
         $this->c1 = $penilaian->c1 ?? null;
         $this->c2 = $penilaian->c2 ?? null;
@@ -43,7 +44,12 @@ class AdminPenilaian extends Component
     {
         $rules = [
             'status_berkas' => 'required',
+            'catatan_admin' => 'nullable|string|max:500', // Opsional, tapi baik untuk limit karakter
         ];
+        // Validasi tambahan: Jika ditolak, catatan_admin WAJIB diisi (UX yang baik)
+        if ($this->status_berkas === 'ditolak') {
+            $rules['catatan_admin'] = 'required|string|min:5';
+        }
 
         // Validasi kriteria hanya jika status berkas valid
         if ($this->status_berkas === 'valid') {
@@ -63,6 +69,7 @@ class AdminPenilaian extends Component
         // 1. Update status berkas di tabel Mahasiswa
         $this->mhs->update([
             'status_berkas' => $this->status_berkas,
+            'catatan_admin' => $this->catatan_admin,
         ]);
 
         // 2. Simpan atau Update nilai di tabel Penilaian
@@ -89,6 +96,6 @@ class AdminPenilaian extends Component
 
     public function render()
     {
-        return view('livewire.admin-penilaian')
-        ;}
+        return view('livewire.admin-penilaian');
+    }
 }
