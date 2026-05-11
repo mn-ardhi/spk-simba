@@ -18,7 +18,7 @@ class FormPendaftaran extends Component
     use WithFileUploads;
 
     // Properti Form
-    public $nim, $prodi, $semester, $tahun_masuk, $nilai_ijazah;
+    public $nim, $prodi, $semester, $tahun_masuk, $tahun_lulus_sma, $nilai_ijazah;
     public $nik, $nisn, $nama_lengkap, $tempat_lahir, $tanggal_lahir, $jenis_kelamin, $nama_ibu_kandung, $wa;
     public $propinsi, $kabupaten, $kecamatan, $kelurahan, $rt, $rw, $alamat, $kode_pos;
     public $penghasilan_ortu, $prestasi_non_akademik, $status_pesantren, $kondisi_keluarga, $setuju_pernyataan = false;
@@ -29,74 +29,74 @@ class FormPendaftaran extends Component
     
     protected $messages = [
     // Identitas Pribadi
-    'nim.nullable' => 'NIM wajib diisi.',
-    'nim.numeric' => 'NIM harus berupa angka.',
+    'nim.required' => 'NIM wajib diisi.',
+    'nim.string' => 'NIM harus berupa string.',
     'nim.unique' => 'NIM ini sudah terdaftar dalam sistem.',
-    'prodi.nullable' => 'Program Studi wajib diisi.',
-    'semester.nullable' => 'Semester wajib diisi.',
+    'prodi.required' => 'Program Studi wajib diisi.',
+    'semester.required' => 'Semester wajib diisi.',
     'semester.numeric' => 'Semester harus berupa angka.',
     'semester.between' => 'Semester harus berada di antara 1 hingga 14.',
-    'tahun_masuk.nullable' => 'Tahun masuk wajib diisi.',
+    'tahun_masuk.required' => 'Tahun masuk wajib diisi.',
     'tahun_masuk.numeric' => 'Tahun masuk harus berupa angka.',
-    'nilai_ijazah.nullable' => 'Nilai ijazah/IPK wajib diisi.',
+    'nilai_ijazah.required' => 'Nilai ijazah/IPK wajib diisi.',
     'nilai_ijazah.decimal' => 'Nilai ijazah harus berupa angka desimal (contoh: 85.50).',
     'nilai_ijazah.between' => 'Nilai ijazah harus di antara 0 hingga 100.',
-    'nik.nullable' => 'NIK wajib diisi.',
+    'nik.required' => 'NIK wajib diisi.',
     'nik.digits' => 'NIK harus berjumlah tepat 16 angka.',
     'nik.unique' => 'NIK ini sudah terdaftar.',
-    'nisn.nullable' => 'NISN wajib diisi.',
+    'nisn.required' => 'NISN wajib diisi.',
     'nisn.digits' => 'NISN harus berjumlah tepat 10 angka.',
-    'nama_lengkap.nullable' => 'Nama lengkap wajib diisi.',
+    'nama_lengkap.required' => 'Nama lengkap wajib diisi.',
     'nama_lengkap.min' => 'Nama lengkap minimal 3 karakter.',
-    'tempat_lahir.nullable' => 'Tempat lahir wajib diisi.',
+    'tempat_lahir.required' => 'Tempat lahir wajib diisi.',
     'tempat_lahir.min' => 'Tempat lahir minimal 2 karakter.',
     'tempat_lahir.max' => 'Tempat lahir maksimal 50 karakter.',
     'tempat_lahir.regex' => 'Tempat lahir hanya boleh berisi huruf dan spasi.',
-    'tanggal_lahir.nullable' => 'Tanggal lahir wajib diisi.',
+    'tanggal_lahir.required' => 'Tanggal lahir wajib diisi.',
     'tanggal_lahir.date' => 'Format tanggal lahir tidak valid.',
-    'jenis_kelamin.nullable' => 'Jenis kelamin wajib dipilih.',
+    'jenis_kelamin.required' => 'Jenis kelamin wajib dipilih.',
     'jenis_kelamin.in' => 'Pilihan jenis kelamin tidak valid.',
-    'nama_ibu_kandung.nullable' => 'Nama ibu kandung wajib diisi.',
-    'wa.nullable' => 'Nomor WhatsApp wajib diisi.',
+    'nama_ibu_kandung.required' => 'Nama ibu kandung wajib diisi.',
+    'wa.required' => 'Nomor WhatsApp wajib diisi.',
     'wa.numeric' => 'Nomor WhatsApp hanya boleh berisi angka.',
     'wa.digits_between' => 'Nomor WhatsApp harus antara 10 hingga 15 angka.',
 
     // Alamat & Kontak
-    'propinsi.nullable' => 'Provinsi wajib diisi.',
-    'kabupaten.nullable' => 'Kabupaten/Kota wajib diisi.',
-    'kecamatan.nullable' => 'Kecamatan wajib diisi.',
-    'kelurahan.nullable' => 'Kelurahan/Desa wajib diisi.',
-    'rt.nullable' => 'RT wajib diisi.',
+    'propinsi.required' => 'Provinsi wajib diisi.',
+    'kabupaten.required' => 'Kabupaten/Kota wajib diisi.',
+    'kecamatan.required' => 'Kecamatan wajib diisi.',
+    'kelurahan.required' => 'Kelurahan/Desa wajib diisi.',
+    'rt.required' => 'RT wajib diisi.',
     'rt.numeric' => 'RT harus berupa angka.',
-    'rw.nullable' => 'RW wajib diisi.',
+    'rw.required' => 'RW wajib diisi.',
     'rw.numeric' => 'RW harus berupa angka.',
-    'alamat.nullable' => 'Alamat detail wajib diisi.',
-    'kode_pos.nullable' => 'Kode pos wajib diisi.',
+    'alamat.required' => 'Alamat detail wajib diisi.',
+    'kode_pos.required' => 'Kode pos wajib diisi.',
     'kode_pos.digits' => 'Kode pos harus berjumlah tepat 5 angka.',
 
     // Data Tambahan & Keluarga
-    'penghasilan_ortu.nullable' => 'Penghasilan orang tua wajib diisi.',
+    'penghasilan_ortu.required' => 'Penghasilan orang tua wajib diisi.',
     'penghasilan_ortu.numeric' => 'Penghasilan orang tua harus berupa angka (tanpa titik).',
     'penghasilan_ortu.min' => 'Penghasilan orang tua tidak boleh kurang dari 0.',
     'prestasi_non_akademik.string' => 'Prestasi non akademik harus berupa teks.',
-    'status_pesantren.nullable' => 'Status pesantren wajib dipilih.',
-    'kondisi_keluarga.nullable' => 'Kondisi keluarga wajib dipilih/diisi.',
+    'status_pesantren.required' => 'Status pesantren wajib dipilih.',
+    'kondisi_keluarga.required' => 'Kondisi keluarga wajib dipilih/diisi.',
     'setuju_pernyataan.accepted' => 'Anda wajib mencentang persetujuan kebenaran data.',
 
     // Upload Berkas
-    'file_ktp.nullable' => 'Dokumen KTP wajib diunggah.',
+    'file_ktp.required' => 'Dokumen KTP wajib diunggah.',
     'file_ktp.mimes' => 'KTP harus berformat PDF, JPG, JPEG, atau PNG.',
     'file_ktp.max' => 'Ukuran KTP maksimal 2MB.',
-    'file_kk.nullable' => 'Dokumen KK wajib diunggah.',
+    'file_kk.required' => 'Dokumen KK wajib diunggah.',
     'file_kk.mimes' => 'KK harus berformat PDF, JPG, JPEG, atau PNG.',
     'file_kk.max' => 'Ukuran KK maksimal 2MB.',
-    'file_kip.nullable' => 'Dokumen KIP wajib diunggah.',
+    'file_kip.required' => 'Dokumen KIP wajib diunggah.',
     'file_kip.mimes' => 'KIP harus berformat PDF, JPG, JPEG, atau PNG.',
     'file_kip.max' => 'Ukuran KIP maksimal 2MB.',
-    'file_ijazah.nullable' => 'Dokumen Ijazah wajib diunggah.',
+    'file_ijazah.required' => 'Dokumen Ijazah wajib diunggah.',
     'file_ijazah.mimes' => 'Ijazah harus berformat PDF, JPG, JPEG, atau PNG.',
     'file_ijazah.max' => 'Ukuran Ijazah maksimal 2MB.',
-    'bukti_sertifikat.nullable' => 'Bukti sertifikat wajib diunggah.',
+    'bukti_sertifikat.required' => 'Bukti sertifikat wajib diunggah.',
     'bukti_sertifikat.mimes' => 'Sertifikat harus berformat PDF, JPG, JPEG, atau PNG.',
     'bukti_sertifikat.max' => 'Ukuran sertifikat maksimal 2MB.',
     ];
@@ -104,75 +104,85 @@ class FormPendaftaran extends Component
     protected function rules()
     {
         return [
-            'nim' => 'nullable|numeric|unique:mahasiswas,nim',
-            'prodi' => 'nullable|string',
-            'semester' => 'nullable|numeric|between:1,14',
-            'tahun_masuk' => 'nullable|numeric',
-            'nilai_ijazah' => 'nullable|decimal:0,2|between:0,100',
-            'nik' => 'nullable|digits:16|unique:mahasiswas,nik',
-            'nisn' => 'nullable|digits:10',
-            'nama_lengkap' => 'nullable|string|min:3',
-            'tempat_lahir' => 'nullable|string|min:2|max:50|regex:/^[a-zA-Z\s]+$/',
-            'tanggal_lahir' => 'nullable|date',
-            'jenis_kelamin' => 'nullable|in:L,P',
-            'nama_ibu_kandung' => 'nullable',
-            'wa' => 'nullable|numeric|digits_between:10,15',
-            'propinsi' => 'nullable|string',
-            'kabupaten' => 'nullable|string',
-            'kecamatan' => 'nullable|string',
-            'kelurahan' => 'nullable|string',
-            'rt' => 'nullable|numeric',
-            'rw' => 'nullable|numeric',
-            'alamat' => 'nullable|string',
-            'kode_pos' => 'nullable|digits:5',
-            'penghasilan_ortu' => 'nullable|numeric|min:0',
+            'nim' => 'required|string|unique:mahasiswas,nim',
+            'prodi' => 'required|string',
+            'semester' => 'required|numeric|between:1,14',
+            'tahun_masuk' => 'required|numeric',
+            'nilai_ijazah' => 'required|decimal:0,2|between:0,100',
+            'nik' => 'required|digits:16|unique:mahasiswas,nik',
+            'nisn' => 'required|digits:10',
+            'nama_lengkap' => 'required|string|min:3',
+            'tempat_lahir' => 'required|string|min:2|max:50|regex:/^[a-zA-Z\s]+$/',
+            'tanggal_lahir' => 'required|date',
+            'jenis_kelamin' => 'required|in:L,P',
+            'nama_ibu_kandung' => 'required',
+            'wa' => 'required|numeric|digits_between:10,15',
+            'propinsi' => 'required|string',
+            'kabupaten' => 'required|string',
+            'kecamatan' => 'required|string',
+            'kelurahan' => 'required|string',
+            'rt' => 'required|numeric',
+            'rw' => 'required|numeric',
+            'alamat' => 'required|string',
+            'kode_pos' => 'required|digits:5',
+            'penghasilan_ortu' => 'required|numeric|min:0',
             'prestasi_non_akademik' => 'nullable|string',
-            'status_pesantren' => 'nullable',
-            'kondisi_keluarga' => 'nullable',
+            'status_pesantren' => 'required',
+            'kondisi_keluarga' => 'required',
             'setuju_pernyataan' => 'accepted', // Wajib dicentang
-            'file_ktp' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'file_kk' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'file_kip' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
-            'file_ijazah' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'file_ktp' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'file_kk' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'file_kip' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
+            'file_ijazah' => 'required|file|mimes:pdf,jpg,jpeg,png|max:2048',
              'bukti_sertifikat' => 'nullable|file|mimes:pdf,jpg,jpeg,png|max:2048',
             ];
     }
 
     public function simpan()
-    {
-        $this->validate();
-        
+{
+    // 1. Jalankan Validasi
+    $this->validate();
 
-        $periodeAktif = Periode::where('is_aktif', true)->first();
-        if (!$periodeAktif) {
-            session()->flash('error', 'Pendaftaran ditutup karena tidak ada periode aktif.');
+    // 2. Ambil Periode Aktif
+    $periodeAktif = Periode::where('is_aktif', true)->first();
+    if (!$periodeAktif) {
+        session()->flash('error', 'Pendaftaran ditutup karena tidak ada periode aktif.');
+        return;
+    }
+
+    // 3. Cek Record Mahasiswa yang Sudah Ada (Existing Data)
+    $mahasiswaExisting = Mahasiswa::where('user_id', Auth::id())
+        ->where('periode_id', $periodeAktif->id)
+        ->first();
+
+    // 4. Logika Keamanan: Cegah kirim ulang jika status sudah 'menunggu' atau 'valid'
+    if ($mahasiswaExisting) {
+        if (in_array($mahasiswaExisting->status_berkas, ['menunggu', 'valid'])) {
+            session()->flash('error', 'Pendaftaran Anda sedang diproses atau sudah valid. Tidak dapat diubah.');
             return;
         }
+    }
 
-        // Cek apakah user sudah pernah mendaftar di periode ini
-        $sudahDaftar = Mahasiswa::where('user_id', Auth::id())
-            ->where('periode_id', $periodeAktif->id)
-            ->exists();
+    // 5. SMART FILE HANDLING (Persistence Logic)
+    // Jika ada file baru di-upload, simpan. Jika tidak, pakai path file yang lama (agar data file tidak hilang).
+    $pathKtp = $this->file_ktp ? $this->file_ktp->store('berkas', 'public') : ($mahasiswaExisting->file_ktp ?? null);
+    $pathKk = $this->file_kk ? $this->file_kk->store('berkas', 'public') : ($mahasiswaExisting->file_kk ?? null);
+    $pathKip = $this->file_kip ? $this->file_kip->store('berkas', 'public') : ($mahasiswaExisting->file_kip ?? null);
+    $pathIjazah = $this->file_ijazah ? $this->file_ijazah->store('berkas', 'public') : ($mahasiswaExisting->file_ijazah ?? null);
+    $pathSertifikat = $this->bukti_sertifikat ? $this->bukti_sertifikat->store('berkas', 'public') : ($mahasiswaExisting->bukti_sertifikat ?? null);
 
-        if ($sudahDaftar) {
-            session()->flash('error', 'Anda sudah terdaftar pada periode ini.');
-            return;
-        }
-
-        // Simpan File ke folder storage/app/public/berkas
-        $pathKtp = $this->file_ktp ? $this->file_ktp->store('berkas', 'public') : null;
-        $pathKk = $this->file_kk ? $this->file_kk->store('berkas', 'public') : null;
-        $pathKip = $this->file_kip ? $this->file_kip->store('berkas', 'public') : null;
-        $pathIjazah = $this->file_ijazah ? $this->file_ijazah->store('berkas', 'public') : null;
-        $pathSertifikat = $this->bukti_sertifikat ? $this->bukti_sertifikat->store('berkas', 'public') : null;
-
-        Mahasiswa::create([
+    // 6. EKSEKUSI UPDATE ATAU CREATE (The Heart of the System)
+    Mahasiswa::updateOrCreate(
+        [
             'user_id' => Auth::id(),
             'periode_id' => $periodeAktif->id,
+        ],
+        [
             'nim' => $this->nim,
             'prodi' => $this->prodi,
             'semester' => $this->semester,
             'tahun_masuk' => $this->tahun_masuk,
+            'tahun_lulus_sma' => $this->tahun_lulus_sma,
             'nilai_ijazah' => $this->nilai_ijazah,
             'nik' => $this->nik,
             'nisn' => $this->nisn,
@@ -195,50 +205,23 @@ class FormPendaftaran extends Component
             'status_pesantren' => $this->status_pesantren,
             'kondisi_keluarga' => $this->kondisi_keluarga,
             'setuju_pernyataan' => $this->setuju_pernyataan,
-            'status_berkas' => 'menunggu', // Default status
+            
+            // RESET METADATA
+            'status_berkas' => 'menunggu', // Status reset ke antrean verifikasi
+            'catatan_admin' => null,       // Hapus alasan penolakan yang lama
+            
+            // FILES
             'file_ktp' => $pathKtp,
             'file_kk' => $pathKk,
             'file_kip' => $pathKip,
             'file_ijazah' => $pathIjazah,
             'bukti_sertifikat' => $pathSertifikat,
-        ]);
+        ]
+    );
 
-        return redirect()->route('mahasiswa.dashboard')->with('message', 'Pendaftaran Berhasil Dikirim!');
-    }
-
-public function mount()
-{
-    // kembalikan nullabel menjadi required
-    // Kondisi ini memastikan pengisian otomatis HANYA terjadi di server lokal Anda (tahap uji coba)
-    if (app()->environment('local')) { 
-        $this->nim = '202610001';
-        $this->prodi = 'Teknik Informatika';
-        $this->semester = '3';
-        $this->tahun_masuk = '2024';
-        $this->nilai_ijazah = '88.50';
-        $this->nik = '3301234567890001';
-        $this->nisn = '0012345678';
-        $this->nama_lengkap = 'Mahasiswa Uji Coba';
-        $this->tempat_lahir = 'Jakarta';
-        $this->tanggal_lahir = '2005-08-17';
-        $this->jenis_kelamin = 'L';
-        $this->nama_ibu_kandung = 'Ibu Fulanah';
-        $this->wa = '081234567890';
-        $this->propinsi = 'Jawa Tengah';
-        $this->kabupaten = 'Semarang';
-        $this->kecamatan = 'Banyumanik';
-        $this->kelurahan = 'Srondol';
-        $this->rt = '1';
-        $this->rw = '2';
-        $this->alamat = 'Jl. Merdeka No. 123';
-        $this->kode_pos = '50263';
-        $this->penghasilan_ortu = '2500000';
-        $this->status_pesantren = 'Tidak';
-        $this->kondisi_keluarga = 'Lengkap';
-        $this->prestasi_non_akademik = 'Juara 1 Lomba Web Design';
-        $this->setuju_pernyataan = true;
-    }
+    return redirect()->route('mahasiswa.dashboard')->with('message', 'Pendaftaran Berhasil Diperbarui & Dikirim!');
 }
+
 
     public function render()
 {
@@ -262,5 +245,42 @@ public function mount()
         'periodeAktif' => $periodeAktif,
         'mahasiswa'    => $dataMahasiswa,
     ]);
+}
+
+public function mount()
+{
+    // 1. Cari apakah mahasiswa ini sudah pernah mengisi form sebelumnya
+    $mahasiswa = \App\Models\Mahasiswa::where('user_id', auth()->id())->first();
+
+    // 2. Jika data DITEMUKAN, masukkan semua nilainya ke properti form
+    if ($mahasiswa) {
+        $this->nim = $mahasiswa->nim;
+        $this->prodi = $mahasiswa->prodi;
+        $this->semester = $mahasiswa->semester;
+        $this->tahun_masuk = $mahasiswa->tahun_masuk;
+        $this->nilai_ijazah = $mahasiswa->nilai_ijazah;
+        $this->nik = $mahasiswa->nik;
+        $this->nisn = $mahasiswa->nisn;
+        $this->nama_lengkap = $mahasiswa->nama_lengkap;
+        $this->tempat_lahir = $mahasiswa->tempat_lahir;
+        $this->tanggal_lahir = $mahasiswa->tanggal_lahir ? $mahasiswa->tanggal_lahir->format('Y-m-d') : null;
+        $this->jenis_kelamin = $mahasiswa->jenis_kelamin;
+        $this->nama_ibu_kandung = $mahasiswa->nama_ibu_kandung;
+        $this->wa = $mahasiswa->wa;
+        $this->propinsi = $mahasiswa->propinsi;
+        $this->kabupaten = $mahasiswa->kabupaten;
+        $this->kecamatan = $mahasiswa->kecamatan;
+        $this->kelurahan = $mahasiswa->kelurahan;
+        $this->rt = $mahasiswa->rt;
+        $this->rw = $mahasiswa->rw;
+        $this->alamat = $mahasiswa->alamat;
+        $this->kode_pos = $mahasiswa->kode_pos;
+        $this->penghasilan_ortu = $mahasiswa->penghasilan_ortu;
+        $this->status_pesantren = $mahasiswa->status_pesantren;
+        $this->kondisi_keluarga = $mahasiswa->kondisi_keluarga;
+        $this->prestasi_non_akademik = $mahasiswa->prestasi_non_akademik;
+        
+        // Note: Untuk file/berkas, biarkan kosong agar mahasiswa mengunggah ulang jika perlu
+    }
 }
 }

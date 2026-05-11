@@ -16,6 +16,7 @@ class Mahasiswa extends Model
         'prodi',
         'semester',
         'tahun_masuk',
+        'tahun_lulus_sma', // Tambahkan field tahun_lulus_sma ke fillable
         'nilai_ijazah',
         'nik',
         'nisn',

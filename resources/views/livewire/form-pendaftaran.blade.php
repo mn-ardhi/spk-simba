@@ -148,6 +148,14 @@
                         @enderror
                     </div>
                     <div>
+                        <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Tahun Lulus SMA/SMK/MA</label>
+                        <input type="number" wire:model="tahun_lulus_sma"
+                            class="w-full bg-slate-50 text-gray-900 border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 transition-all">
+                        @error('tahun_lulus_sma')
+                            <span class="text-red-500 text-xs mt-1">{{ $message }}</span>
+                        @enderror
+                    </div>
+                    <div>
                         <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Nilai Rata-Rata
                             Ijazah</label>
                         <input type="number" step="0.01" max="100" wire:model="nilai_ijazah"
