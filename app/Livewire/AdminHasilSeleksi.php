@@ -5,9 +5,12 @@ namespace App\Livewire;
 use Livewire\Component;
 use App\Models\HasilSeleksi;
 use App\Models\Periode;
+
 use App\Services\SawCalculationService; // Memanggil mesin kalkulator
 use Barryvdh\DomPDF\Facade\Pdf; // memanggil fungsi cetak laporan pdf
+use Livewire\Attributes\Layout;
 
+#[Layout('layouts.admin')] // <--- BERITAHU LIVEWIRE PAKAI LAYOUT ADMIN
 class AdminHasilSeleksi extends Component
 {
     // Fungsi ini akan berjalan saat Admin menekan tombol "Hitung"
@@ -48,7 +51,8 @@ class AdminHasilSeleksi extends Component
         return view('livewire.admin-hasil-seleksi', [
             'hasilSeleksi' => $hasilSeleksi,
             'periode' => $periodeAktif
-        ])->layout('layouts.admin');
+        ]);
+    
     }
     public function cetakPDF()
     {

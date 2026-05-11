@@ -5,11 +5,12 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
-    <title>{{ config('app.name', 'SIPENA Rektorat') }} - Admin</title>
+    <title>{{ config('app.name', 'SIMBA Rektorat') }} - Admin</title>
 
     <link rel="preconnect" href="https://fonts.bunny.net">
     <link href="https://fonts.bunny.net/css?family=figtree:400,500,600,700&display=swap" rel="stylesheet" />
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    @livewireStyles
 </head>
 
 <body class="font-sans antialiased bg-[#0f1115] text-gray-200">
@@ -133,7 +134,11 @@
 
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-transparent relative z-10">
                 <div class="container mx-auto px-6 py-8">
-                    {{ $slot }}
+                   @isset($slot)
+                        {{ $slot }}
+                    @else
+                        @yield('content')
+                    @endisset
                 </div>
             </main>
 

@@ -256,7 +256,7 @@
                         <div>
                             <label class="block text-xs font-bold text-gray-500 uppercase mb-2">Prestasi Non-Akademik
                             </label>
-                            <input type="number" wire:model="prestasi_non_akademik"
+                            <input type="text" wire:model="prestasi_non_akademik"
                                 placeholder="Contoh: Juara MTQ Internasional"
                                 class="w-full bg-slate-50 text-gray-900 border-gray-200 rounded-xl px-4 py-3 text-sm focus:ring-2 focus:ring-blue-500 transition-all">
                             @error('prestasi_non_akademik')
@@ -415,16 +415,7 @@
                 </div>
             </div>
 
-            @if ($errors->any())
-                <div class="p-6 bg-red-50 border border-red-200 rounded-2xl">
-                    <h4 class="text-red-800 font-bold mb-2">Terdapat kesalahan pengisian:</h4>
-                    <ul class="list-disc pl-5 text-sm text-red-600 font-medium space-y-1">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
-                </div>
-            @endif
+            
 
         </form>
     </div>

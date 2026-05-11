@@ -5,7 +5,9 @@ namespace App\Livewire;
 use Livewire\Component;
 use Livewire\WithPagination;
 use App\Models\Periode;
-use Carbon\Carbon;
+use Carbon\Carbon;use Livewire\Attributes\Layout;
+
+#[Layout('layouts.admin')] // <--- BERITAHU LIVEWIRE PAKAI LAYOUT ADMIN
 
 class MasterPeriode extends Component
 {
@@ -95,6 +97,6 @@ class MasterPeriode extends Component
     {
         return view('livewire.master-periode', [
             'periodes' => Periode::latest()->paginate(10)
-        ])->layout('layouts.admin');
+        ]);
     }
 }

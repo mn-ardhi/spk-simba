@@ -18,9 +18,9 @@
             <thead class="text-xs text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-300">
                 <tr>
                     <th scope="col" class="px-6 py-3">Mahasiswa</th>
-                    <th scope="col" class="px-6 py-3">Jurusan / IPK</th>
-                    <th scope="col" class="px-6 py-3">Status Berkas</th>
-                    <th scope="col" class="px-6 py-3 text-right">Aksi Penilaian</th>
+                    <th scope="col" class="px-6 py-3">Jurusan</th>
+                    <th scope="col" class="px-6 py-3 text-center">Status Berkas</th>
+                    <th scope="col" class="px-6 py-3 text-center">Aksi Penilaian</th>
                 </tr>
             </thead>
             <tbody>
@@ -33,9 +33,8 @@
                         </td>
                         <td class="px-6 py-4">
                             <div>{{ $mhs->prodi }}</div>
-                            <div class="font-bold text-blue-600 dark:text-blue-400">IPK: {{ $mhs->ipk }}</div>
                         </td>
-                        <td class="px-6 py-4">
+                        <td class="px-6 py-4 text-center">
                             @if ($mhs->status_berkas == 'menunggu')
                                 <span
                                     class="bg-yellow-100 text-yellow-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-yellow-900 dark:text-yellow-300">Menunggu
@@ -49,7 +48,7 @@
                                     class="bg-red-100 text-red-800 text-xs font-medium px-2.5 py-0.5 rounded dark:bg-red-900 dark:text-red-300">Ditolak</span>
                             @endif
                         </td>
-                        <td class="px-6 py-4 text-right">
+                        <td class="px-6 py-4 text-center">
                             <a href="{{ route('admin.penilaian', $mhs->id) }}" wire:navigate
                                 class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:outline-none focus:ring-4 focus:ring-blue-500/50">
                                 Buka Halaman Penilaian

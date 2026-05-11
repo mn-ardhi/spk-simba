@@ -53,6 +53,7 @@ class Mahasiswa extends Model
         'file_berkas' => 'array',
     ];
 
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);

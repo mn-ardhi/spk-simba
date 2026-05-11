@@ -7,6 +7,9 @@ use Livewire\WithPagination;
 use App\Models\Mahasiswa;
 use App\Models\Periode;
 use App\Models\Penilaian; // Pastikan model ini dipanggil
+use Livewire\Attributes\Layout;
+
+#[Layout('layouts.admin')] // <--- BERITAHU LIVEWIRE PAKAI LAYOUT ADMIN
 
 class AdminPendaftar extends Component
 {
@@ -109,6 +112,6 @@ class AdminPendaftar extends Component
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('livewire.admin-pendaftar', ['mahasiswas' => $mahasiswas, 'periode' => $periodeAktif])->layout('layouts.admin');
+        return view('livewire.admin-pendaftar', ['mahasiswas' => $mahasiswas, 'periode' => $periodeAktif]);
     }
 }

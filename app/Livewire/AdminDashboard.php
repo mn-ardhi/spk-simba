@@ -6,7 +6,9 @@ use Livewire\Component;
 use App\Models\Mahasiswa;
 use App\Models\Periode;
 use App\Models\HasilSeleksi;
+use Livewire\Attributes\Layout;
 
+#[Layout('layouts.admin')] // <--- BERITAHU LIVEWIRE PAKAI LAYOUT ADMIN
 class AdminDashboard extends Component
 {
     public function render()
@@ -38,6 +40,6 @@ class AdminDashboard extends Component
             'periode' => $periodeAktif,
             'stats' => $stats,
             'topMahasiswa' => $topMahasiswa
-        ])->layout('layouts.admin');
+        ]);
     }
 }

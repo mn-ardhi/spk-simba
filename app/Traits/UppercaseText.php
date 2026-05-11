@@ -4,11 +4,23 @@ namespace App\Traits;
 
 trait UppercaseText
 {
-    public function setAttribute($key, $value)
+    protected static function bootUppercaseText()
     {
-        if (is_string($value) && !in_array($key, ['password', 'email', 'username'])) {
-            $value = strtoupper($value);
-        }
-        return parent::setAttribute($key, $value);
+        static::saving(function ($model) {
+            // Daftar kolom yang TIDAK BOLEH dikapitalkan
+            $except = [
+                'status_berkas', 
+                'file_berkas', 
+                'bukti_sertifikat', 
+                'email', 
+                'password'
+            ];
+
+            foreach ($model->getAttributes() as $key => $value) {
+                if (is_string($value) && !in_array($key, $except)) {
+                    $model->{$key} = strtoupper($value);
+                }
+            }
+        });
     }
 }
