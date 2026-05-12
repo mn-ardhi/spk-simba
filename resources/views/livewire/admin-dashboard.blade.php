@@ -54,7 +54,7 @@
                             <th class="px-4 py-3 text-center">Rank</th>
                             <th class="px-4 py-3">Nama Pendaftar</th>
                             <th class="px-4 py-3">Program Studi</th>
-                            <th class="px-4 py-3 text-right">Skor Akhir</th>
+                            <th class="px-4 py-3 text-center">Tingkat Kecocokan</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,8 +66,8 @@
                                 <td class="px-4 py-3 font-semibold text-gray-900 dark:text-white">
                                     {{ $top->mahasiswa->nama_lengkap }}</td>
                                 <td class="px-4 py-3">{{ $top->mahasiswa->prodi }}</td>
-                                <td class="px-4 py-3 text-right font-mono font-bold text-blue-600 dark:text-blue-400">
-                                    {{ number_format($top->skor_akhir, 4) }}</td>
+                                <td class="px-4 py-3 text-center font-mono font-bold text-blue-600 dark:text-blue-400">
+                                    {{ number_format($top->skor_akhir * 100, 2, ',', '.') }}%</td>
                             </tr>
                         @empty
                             <tr>

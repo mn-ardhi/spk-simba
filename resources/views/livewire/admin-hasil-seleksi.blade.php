@@ -43,7 +43,7 @@
                     <th scope="col" class="px-6 py-4 text-center w-24">Peringkat</th>
                     <th scope="col" class="px-6 py-4">Nama Pendaftar</th>
                     <th scope="col" class="px-6 py-4">NIM / Prodi</th>
-                    <th scope="col" class="px-6 py-4 text-center">Skor Akhir (V)</th>
+                    <th scope="col" class="px-6 py-4 text-center">Tingkat Kecocokan</th>
                 </tr>
             </thead>
             <tbody>
@@ -64,7 +64,7 @@
                         </td>
                         <td
                             class="px-6 py-4 text-center font-mono font-bold text-blue-600 dark:text-blue-400 text-base">
-                            {{ number_format($hasil->skor_akhir, 4) }}
+                            {{ number_format($hasil->skor_akhir * 100, 2, ',', '.') }}%
                         </td>
                     </tr>
                 @empty

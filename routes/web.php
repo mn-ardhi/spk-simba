@@ -21,19 +21,19 @@ Route::middleware(['auth', 'verified'])->get('/dashboard', function () {
 
 // 2. RUTE KHUSUS MAHASISWA
 Route::middleware(['auth', 'verified'])->group(function () {
-    Route::get('/mahasiswa-dashboard', \App\Livewire\MahasiswaDashboard::class)->name('mahasiswa.dashboard');
+    Route::get('/mahasiswa', \App\Livewire\MahasiswaDashboard::class)->name('mahasiswa.dashboard');
     Route::get('/pendaftaran', \App\Livewire\FormPendaftaran::class)->name('pendaftaran');
 });
 
 // 3. RUTE KHUSUS EKSEKUTIF REKTORAT (ADMIN)
 Route::middleware(['auth', 'admin'])->group(function () {
-    Route::get('/admin-dashboard', \App\Livewire\AdminDashboard::class)->name('admin.dashboard');
-    Route::get('/admin-pendaftar', \App\Livewire\AdminPendaftar::class)->name('admin.pendaftar');
+    Route::get('/dashboard', \App\Livewire\AdminDashboard::class)->name('admin.dashboard');
+    Route::get('/kandidat', \App\Livewire\AdminPendaftar::class)->name('admin.pendaftar');
 
     // RUTE BARU: Halaman khusus penilaian mahasiswa berdasarkan ID
-    Route::get('/admin-pendaftar/penilaian/{id}', \App\Livewire\AdminPenilaian::class)->name('admin.penilaian');
+    Route::get('/kandidat/penilaian/{id}', \App\Livewire\AdminPenilaian::class)->name('admin.penilaian');
 
-    Route::get('/admin-hasil-seleksi', \App\Livewire\AdminHasilSeleksi::class)->name('admin.hasil');
+    Route::get('/hasil-seleksi', \App\Livewire\AdminHasilSeleksi::class)->name('admin.hasil');
 
     //RUTE UNTUK MASTER PERIODE
     Route::get('/master-periode', \App\Livewire\MasterPeriode::class)->name('master.periode');

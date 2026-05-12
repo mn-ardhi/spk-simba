@@ -93,7 +93,7 @@
                                     <div class="text-sm uppercase font-bold opacity-80 tracking-widest mb-1">Peringkat Anda</div>
                                     <div class="text-6xl font-extrabold mb-2">#{{ $mahasiswa->hasilSeleksi->peringkat }}</div>
                                     <div class="text-lg font-medium opacity-90">
-                                        Skor Kompetensi: <span class="font-mono font-bold">{{ number_format($mahasiswa->hasilSeleksi->skor_akhir, 4) }}</span>
+                                        Skor Kompetensi: <span class="font-mono font-bold">{{ number_format($mahasiswa->hasilSeleksi->skor_akhir * 100, 2, ',', '.') }}%</span>
                                     </div>
 
                                     @if ($mahasiswa->hasilSeleksi->peringkat <= $mahasiswa->periode->kuota_penerima)

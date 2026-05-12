@@ -20,11 +20,11 @@
     <table>
         <thead>
             <tr>
-                <th style="width: 10%; text-align: center;">Rank</th>
+                <th style="width: 10%; text-align: center;">Peringkat</th>
                 <th>Nama Mahasiswa</th>
                 <th>NIM</th>
                 <th>Program Studi</th>
-                <th style="text-align: center;">Skor Akhir (V)</th>
+                <th style="text-align: center;">Tingkat Kecocokan</th>
             </tr>
         </thead>
         <tbody>
@@ -34,14 +34,14 @@
                 <td>{{ $h->mahasiswa->nama_lengkap }}</td>
                 <td>{{ $h->mahasiswa->nim }}</td>
                 <td>{{ $h->mahasiswa->prodi }}</td>
-                <td style="text-align: center;">{{ number_format($h->skor_akhir, 4) }}</td>
+                <td style="text-align: center;">{{ number_format($h->skor_akhir * 100, 2, ',', '.') }}%</td>
             </tr>
             @endforeach
         </tbody>
     </table>
 
     <div class="footer">
-        <p>Dicetak secara sistematis oleh SIPENA</p>
+        <p>Bantul, {{ \Carbon\Carbon::now()->format('d F Y') }}</p>
         <br><br>
         <p>( __________________________ )</p>
         <p>Bagian Kemahasiswaan</p>

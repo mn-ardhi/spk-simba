@@ -35,8 +35,7 @@
                         class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 text-2xl font-extrabold ml-2 drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]">SIMBA</span>
                 </div>
             </div>
-            <div class="text-blue-500/50 text-[10px] text-center mt-1 font-bold tracking-[0.2em] uppercase">Panel
-                Beasiswa KIP K</div>
+            <div class="text-blue-500/50 text-[10px] text-center mt-1 font-bold tracking-[0.1em] uppercase">Sistem Informasi Beasiswa</div>
 
             <nav class="mt-10 px-4 space-y-3 flex-1">
                 <a href="{{ route('admin.dashboard') }}"
