@@ -49,7 +49,7 @@
                     @elseif ($mahasiswa->status_berkas === 'ditolak')
                         <div class="bg-red-50 dark:bg-red-900/20 border-l-4 border-red-600 p-6 rounded-r-lg shadow-md">
                             <div class="flex items-start">
-                                <div class="flex-shrink-0">
+                                <div class="shrink-0">
                                     <svg class="h-6 w-6 text-red-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                                     </svg>
@@ -88,7 +88,7 @@
                         <div class="mt-8 pt-8 border-t border-gray-100 dark:border-gray-700">
                             <h3 class="text-xl font-black text-gray-800 dark:text-white mb-4">🏆 Pengumuman Hasil Seleksi</h3>
                             
-                            <div class="p-6 bg-gradient-to-br from-blue-600 to-indigo-700 rounded-3xl text-white shadow-2xl relative overflow-hidden">
+                            <div class="p-6 bg-linear-to-br from-blue-600 to-indigo-700 rounded-3xl text-white shadow-2xl relative overflow-hidden">
                                 <div class="relative z-10">
                                     <div class="text-sm uppercase font-bold opacity-80 tracking-widest mb-1">Peringkat Anda</div>
                                     <div class="text-6xl font-extrabold mb-2">#{{ $mahasiswa->hasilSeleksi->peringkat }}</div>

@@ -16,7 +16,7 @@ class AdminHasilSeleksi extends Component
     // Fungsi ini akan berjalan saat Admin menekan tombol "Hitung"
     public function hitungSAW(SawCalculationService $sawService)
     {
-        $periodeAktif = Periode::latest()->first();
+        $periodeAktif = Periode::where('is_aktif', 1)->first();
 
         if (!$periodeAktif) {
             session()->flash('error', 'Kalkulasi gagal: Belum ada data periode di database.');
@@ -35,7 +35,7 @@ class AdminHasilSeleksi extends Component
 
     public function render()
     {
-        $periodeAktif = Periode::latest()->first();
+        $periodeAktif = Periode::where('is_aktif', 1)->first();
         $hasilSeleksi = [];
 
         if ($periodeAktif) {
@@ -50,7 +50,7 @@ class AdminHasilSeleksi extends Component
 
         return view('livewire.admin-hasil-seleksi', [
             'hasilSeleksi' => $hasilSeleksi,
-            'periode' => $periodeAktif
+            'periodeAktif' => $periodeAktif
         ]);
     
     }
@@ -72,7 +72,7 @@ class AdminHasilSeleksi extends Component
         $pdfContent = [
             'title' => 'Laporan Hasil Seleksi Beasiswa KIP Kuliah',
             'date' => date('d/m/Y'),
-            'periode' => $periodeAktif->nama_periode,
+            'periodeAktif' => $periodeAktif,
             'hasil' => $data
         ];
 

@@ -13,7 +13,8 @@ class AdminDashboard extends Component
 {
     public function render()
     {
-        $periodeAktif = Periode::latest()->first();
+        // Ambil data periode yang sedang aktif
+        $periodeAktif = Periode::where('is_aktif', 1)->first();
 
         // Siapkan variabel kosong
         $stats = ['total' => 0, 'valid' => 0, 'ditolak' => 0, 'menunggu' => 0];
@@ -37,7 +38,7 @@ class AdminDashboard extends Component
         }
 
         return view('livewire.admin-dashboard', [
-            'periode' => $periodeAktif,
+            'periodeAktif' => $periodeAktif,
             'stats' => $stats,
             'topMahasiswa' => $topMahasiswa
         ]);

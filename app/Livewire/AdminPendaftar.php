@@ -98,10 +98,10 @@ class AdminPendaftar extends Component
 
     public function render()
     {
-        $periodeAktif = Periode::latest()->first();
+        $periodeAktif = Periode::where('is_aktif', 1)->first();
 
         if (!$periodeAktif) {
-            return view('livewire.admin-pendaftar', ['mahasiswas' => collect([]), 'periode' => null]);
+            return view('livewire.admin-pendaftar', ['mahasiswas' => collect([]), 'periodeAktif' => null]);
         }
 
         $mahasiswas = Mahasiswa::where('periode_id', $periodeAktif->id)
@@ -112,6 +112,8 @@ class AdminPendaftar extends Component
             ->orderBy('created_at', 'desc')
             ->paginate(10);
 
-        return view('livewire.admin-pendaftar', ['mahasiswas' => $mahasiswas, 'periode' => $periodeAktif]);
+        return view('livewire.admin-pendaftar', [
+            'mahasiswas' => $mahasiswas, 
+            'periodeAktif' => $periodeAktif]);
     }
 }

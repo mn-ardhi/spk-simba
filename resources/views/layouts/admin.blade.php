@@ -32,14 +32,14 @@
                         </path>
                     </svg>
                     <span
-                        class="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 text-2xl font-extrabold ml-2 drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]">SIMBA</span>
+                        class="text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400 text-2xl font-extrabold ml-2 drop-shadow-[0_0_10px_rgba(56,189,248,0.3)]">SIMBA</span>
                 </div>
             </div>
-            <div class="text-blue-500/50 text-[10px] text-center mt-1 font-bold tracking-[0.1em] uppercase">Sistem Informasi Beasiswa</div>
+            <div class="text-blue-500/50 text-[10px] text-center mt-1 font-bold tracking-widest uppercase">Sistem Informasi Beasiswa</div>
 
             <nav class="mt-10 px-4 space-y-3 flex-1">
                 <a href="{{ route('admin.dashboard') }}"
-                    class="flex items-center px-4 py-3 group {{ request()->routeIs('admin.dashboard') ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
+                    class="flex items-center px-4 py-3 group {{ request()->routeIs('admin.dashboard') ? 'bg-linear-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
                     <svg class="w-5 h-5 {{ request()->routeIs('admin.dashboard') ? 'text-white' : 'text-gray-500 group-hover:text-blue-400 transition-colors' }}"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -50,7 +50,7 @@
                 </a>
 
                 <a href="{{ route('master.periode') }}"
-                    class="flex items-center px-4 py-3 group {{ request()->routeIs('master.periode') ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
+                    class="flex items-center px-4 py-3 group {{ request()->routeIs('master.periode') ? 'bg-linear-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
                     <svg class="w-5 h-5 {{ request()->routeIs('master.periode') ? 'text-white' : 'text-gray-500 group-hover:text-blue-400 transition-colors' }}"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -61,7 +61,7 @@
                 </a>
 
                 <a href="{{ route('admin.pendaftar') }}"
-                    class="flex items-center px-4 py-3 group {{ request()->routeIs('admin.pendaftar') ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
+                    class="flex items-center px-4 py-3 group {{ request()->routeIs('admin.pendaftar') ? 'bg-linear-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
                     <svg class="w-5 h-5 {{ request()->routeIs('admin.pendaftar') ? 'text-white' : 'text-gray-500 group-hover:text-blue-400 transition-colors' }}"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -72,7 +72,7 @@
                 </a>
 
                 <a href="{{ route('admin.hasil') }}"
-                    class="flex items-center px-4 py-3 group {{ request()->routeIs('admin.hasil') ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
+                    class="flex items-center px-4 py-3 group {{ request()->routeIs('admin.hasil') ? 'bg-linear-to-r from-blue-600 to-indigo-600 text-white rounded-xl shadow-[0_0_20px_rgba(37,99,235,0.4)]' : 'text-gray-400 hover:text-blue-300 hover:bg-gray-800/50 rounded-xl transition-all duration-300' }}">
                     <svg class="w-5 h-5 {{ request()->routeIs('admin.hasil') ? 'text-white' : 'text-gray-500 group-hover:text-blue-400 transition-colors' }}"
                         fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -85,7 +85,7 @@
             <div class="p-4 bg-[#090a0c] border-t border-gray-800/60 mt-auto">
                 <div class="flex items-center bg-gray-900/50 p-3 rounded-xl border border-gray-800">
                     <div
-                        class="w-9 h-9 rounded-full bg-gradient-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center font-bold shadow-[0_0_10px_rgba(37,99,235,0.5)]">
+                        class="w-9 h-9 rounded-full bg-linear-to-br from-blue-500 to-indigo-600 text-white flex items-center justify-center font-bold shadow-[0_0_10px_rgba(37,99,235,0.5)]">
                         {{ substr(auth()->user()->name, 0, 1) }}
                     </div>
                     <div class="ml-3 overflow-hidden">
@@ -126,7 +126,7 @@
                         </svg>
                     </button>
                     <div
-                        class="text-lg font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] tracking-wide">
+                        class="text-lg font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] tracking-wide">
                         SIMBA Admin
                     </div>
             </header>

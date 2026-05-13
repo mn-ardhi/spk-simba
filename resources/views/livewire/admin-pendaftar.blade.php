@@ -2,9 +2,12 @@
 
     <div class="flex flex-col md:flex-row justify-between items-center mb-6 gap-4">
         <div>
-            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">Daftar Pendaftar Beasiswa</h2>
+            <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">Daftar Kandidat Calon Penerima Beasiswa</h2>
             <p class="text-sm text-gray-500 dark:text-gray-400">Periode Aktif:
-                {{ $periode ? $periode->nama_periode : 'Tidak ada periode aktif' }}</p>
+            <span class="font-extrabold text-transparent bg-clip-text bg-linear-to-r from-blue-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] tracking-wide">
+                {{ $periodeAktif ? $periodeAktif->nama_periode : 'Belum Ada Periode Aktif' }}
+            </span>
+            </p>    
         </div>
 
         <div class="w-full md:w-1/3">
@@ -50,7 +53,7 @@
                         </td>
                         <td class="px-6 py-4 text-center">
                             <a href="{{ route('admin.penilaian', $mhs->id) }}" wire:navigate
-                                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white transition-all duration-300 rounded-lg bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:outline-none focus:ring-4 focus:ring-blue-500/50">
+                                class="inline-flex items-center justify-center px-4 py-2 text-sm font-medium text-white transition-all duration-300 rounded-lg bg-linear-to-r from-blue-600 to-indigo-600 shadow-[0_0_15px_rgba(37,99,235,0.4)] hover:shadow-[0_0_25px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:outline-none focus:ring-4 focus:ring-blue-500/50">
                                 Buka Halaman Penilaian
                             </a>
                         </td>
@@ -65,7 +68,7 @@
         </table>
     </div>
 
-    @if ($periode)
+    @if ($periodeAktif)
         <div class="mt-4">
             {{ $mahasiswas->links() }}
         </div>

@@ -4,12 +4,16 @@
         <div>
             <h2 class="text-xl font-bold text-gray-800 dark:text-gray-100">Hasil Seleksi & Peringkat (Metode SAW)</h2>
             <p class="text-sm text-gray-500 dark:text-gray-400">Periode Aktif:
-                {{ $periode ? $periode->nama_periode : 'Tidak ada periode aktif' }}</p>
+            <span
+                class="font-extrabold text-transparent bg-clip-text bg-linear-to-br from-blue-400 to-cyan-400 drop-shadow-[0_0_8px_rgba(56,189,248,0.5)] tracking-wide">
+                {{ $periodeAktif ? $periodeAktif->nama_periode : 'Belum Ada Periode Aktif' }}
+            </span>
+            </p>
         </div>
 
         <div>
             <button wire:click="hitungSAW" wire:loading.attr="disabled"
-                class="flex items-center gap-2 px-6 py-3 font-bold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:ring-4 focus:ring-blue-500/50">
+                class="flex items-center gap-2 px-6 py-3 font-bold text-white transition-all duration-300 rounded-xl bg-linear-to-br from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:ring-4 focus:ring-blue-500/50">
                 <span wire:loading.remove wire:target="hitungSAW">🧮 Jalankan Kalkulasi SAW</span>
                 <span wire:loading wire:target="hitungSAW">⏳ Sedang Menghitung...</span>
             </button>
@@ -17,7 +21,7 @@
         </div>
         <div>
             <button wire:click="cetakPDF" wire:loading.attr="disabled"
-                class="flex items-center gap-2 px-6 py-3 font-bold text-white transition-all duration-300 rounded-xl bg-gradient-to-r from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:ring-4 focus:ring-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed">
+                class="flex items-center gap-2 px-6 py-3 font-bold text-white transition-all duration-300 rounded-xl bg-linear-to-br from-blue-600 to-indigo-600 shadow-[0_0_20px_rgba(37,99,235,0.4)] hover:shadow-[0_0_30px_rgba(37,99,235,0.6)] hover:from-blue-500 hover:to-indigo-500 focus:ring-4 focus:ring-blue-500/50 disabled:opacity-50 disabled:cursor-not-allowed">
                 <span>🖨️ Cetak PDF</span>
             </button>
         </div>
