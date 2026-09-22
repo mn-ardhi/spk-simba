@@ -77,9 +77,12 @@
                                 </div>
                                 <div
                                     class="space-y-1 md:col-span-2 border-t border-gray-100 dark:border-gray-700 pt-3 mt-1">
-                                    <label class="text-[10px] uppercase font-black text-gray-400 tracking-widest">Prestasi Non Akademik </label>
-                                    <p class="text-gray-700 dark:text-gray-300 font-medium"> Prestasi : {{ $mhs->prestasi_non_akademik}} 
-                                    
+                                    <label
+                                        class="text-[10px] uppercase font-black text-gray-400 tracking-widest">Prestasi
+                                        Non Akademik </label>
+                                    <p class="text-gray-700 dark:text-gray-300 font-medium"> Prestasi :
+                                        {{ $mhs->prestasi_non_akademik }}
+
                                 </div>
                             </div>
 
@@ -114,7 +117,7 @@
                     </div>
                     <div class="p-6">
                         <div class="grid grid-cols-1 sm:grid-cols-3 gap-4">
-                            @foreach (['file_ijazah' => 'Kartu Tanda Penduduk','bukt_sertifikat' => 'Sertifikat', 'file_ktp' => 'Kartu Tanda Penduduk', 'file_kk' => 'Kartu Keluarga', 'file_kip' => 'KIP / Bukti DTKS'] as $field => $label)
+                            @foreach (['file_ijazah' => 'Kartu Tanda Penduduk', 'bukt_sertifikat' => 'Sertifikat', 'file_ktp' => 'Kartu Tanda Penduduk', 'file_kk' => 'Kartu Keluarga', 'file_kip' => 'KIP / Bukti DTKS'] as $field => $label)
                                 <div class="relative group">
                                     @if ($mhs->$field)
                                         <a href="{{ asset('storage/' . $mhs->$field) }}" target="_blank"
@@ -176,7 +179,7 @@
 
                         @if ($status_berkas === 'valid')
                             <div class="pt-4 border-t border-gray-100 dark:border-gray-700 space-y-4">
-                                @php
+                                {{-- @php
                                     $kriteria = [
                                         'c1' => ['label' => 'C1 - Potensi Akademik', 'desc' => 'IPK/Rapor (Benefit)'],
                                         'c2' => [
@@ -231,6 +234,60 @@
                                             ],
                                         ],
                                     ];
+                                @endphp --}}
+                                @php
+                                    $kriteria = [
+                                        'c1' => ['label' => 'C1 - Potensi Akademik', 'desc' => 'IPK/Rapor (Benefit)'],
+                                        'c2' => [
+                                            'label' => 'C2 - Prestasi Non-Akad',
+                                            'options' => [
+                                                100 => 'Internasional',
+                                                80 => 'Nasional',
+                                                60 => 'Provinsi',
+                                                40 => 'Kab/Kota',
+                                                10 => 'Tidak Ada',
+                                            ],
+                                        ],
+                                        'c3' => ['label' => 'C3 - Penghasilan Ortu', 'desc' => 'Nominal Rupiah (Cost)'],
+                                        'c4' => [
+                                            'label' => 'C4 - Kesejahteraan',
+                                            'options' => [
+                                                100 => 'KIP/KKS/KJP/PKH + DTKS',
+                                                80 => 'Hanya KIP/KKS/KJP/PKH',
+                                                60 => 'Hanya DTKS',
+                                                40 => 'SKTM',
+                                                10 => 'Tidak Ada',
+                                            ],
+                                        ],
+                                        'c5' => [
+                                            'label' => 'C5 - Kondisi Khusus & Afirmasi',
+                                            'options' => [
+                                                100 => 'Yatim Piatu / Disabilitas / Daerah 3T / Orang Asli Papua (OAP)',
+                                                80 => 'Yatim/Piatu / Terdampak Bencana Alam / Daerah Konflik',
+                                                60 => 'Ortu PHK / Ortu di Lapas / Anak PMI Perbatasan / Korban Musibah',
+                                                10 => 'Reguler (Tidak Ada Kondisi Khusus/Afirmasi)',
+                                            ],
+                                        ],
+                                        'c6' => [
+                                            'label' => 'C6 - Jml Tanggungan',
+                                            'options' => [
+                                                100 => '> 5 Orang',
+                                                80 => '4-5 Orang',
+                                                60 => '3 Orang',
+                                                40 => '2 Orang',
+                                                20 => '1 Orang',
+                                            ],
+                                        ],
+                                        'c7' => [
+                                            'label' => 'C7 - Kepesantrenan',
+                                            'options' => [
+                                                100 => 'Berasrama dan Alumni Pesantren',
+                                                80 => 'Berasrama (Bukan Alumni Pesantren)',
+                                                60 => 'Tidak Berasrama (Alumni Pesantren)',
+                                                20 => 'Tidak Berasrama dan Bukan Alumni Pesantren',
+                                            ],
+                                        ],
+                                    ];
                                 @endphp
 
                                 @foreach ($kriteria as $key => $data)
@@ -259,10 +316,10 @@
                             </div>
                         @elseif($status_berkas === 'ditolak')
                             <div class="mt-4 animate-fade-in">
-                                <label class="block text-sm font-medium text-red-600">Alasan Penolakan / Catatan Perbaikan</label>
-                                <textarea wire:model="catatan_admin" 
-                                        placeholder="Contoh: Foto KK tidak jelas, mohon upload ulang..." 
-                                        class="w-full rounded-lg border-red-300 focus:ring-red-500"></textarea>
+                                <label class="block text-sm font-medium text-red-600">Alasan Penolakan / Catatan
+                                    Perbaikan</label>
+                                <textarea wire:model="catatan_admin" placeholder="Contoh: Foto KK tidak jelas, mohon upload ulang..."
+                                    class="w-full rounded-lg border-red-300 focus:ring-red-500"></textarea>
                             </div>
                         @endif
                     </div>
