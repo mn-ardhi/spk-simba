@@ -25,8 +25,18 @@
                 <div class="shrink-0 flex items-center gap-2">
                     <a href="/">
                         <div class="shrink-0 flex items-center">
-                            <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"></path></svg>
-                            <span class="ml-2 font-bold text-xl text-gray-900 tracking-tight">Portal <span class="text-blue-600">Beasiswa</span></span>
+                            <svg class="w-8 h-8 text-blue-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 14l9-5-9-5-9 5 9 5z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z">
+                                </path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222">
+                                </path>
+                            </svg>
+                            <span class="ml-2 font-bold text-xl text-gray-900 tracking-tight">Portal <span
+                                    class="text-blue-600">Beasiswa</span></span>
                         </div>
                     </a>
                 </div>
@@ -34,7 +44,7 @@
                 <div class="hidden md:flex items-center space-x-8">
                     <a href="#syarat-mutlak"
                         class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Syarat Wajib</a>
-                    <a href="#kriteria-saw"
+                    <a href="#kriteria-penilaian"
                         class="text-sm font-medium text-slate-600 hover:text-blue-600 transition">Kriteria
                         Penilaian</a>
                     <a href="#berkas"
@@ -76,7 +86,7 @@
                 <a href="#syarat-mutlak" @click="open = false"
                     class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Syarat
                     Wajib</a>
-                <a href="#kriteria-saw" @click="open = false"
+                <a href="#kriteria-penilaian" @click="open = false"
                     class="block px-3 py-2 rounded-md font-medium text-slate-700 hover:text-blue-600 hover:bg-slate-50">Kriteria
                     Penilaian</a>
                 <a href="#berkas" @click="open = false"
@@ -118,12 +128,13 @@
         <div class="absolute inset-0 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] opacity-5">
         </div>
         <div class="relative max-w-5xl mx-auto px-4 text-center">
-            <span class="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6 border border-blue-100">
-            @if($periodeAktif)
-                🚀 Rekrutmen {{ $periodeAktif->nama_periode }} Sedang Berlangsung
-            @else
-                ⌛ Pendaftaran Saat Ini Sedang Ditutup
-            @endif
+            <span
+                class="inline-block py-1 px-3 rounded-full bg-blue-50 text-blue-600 text-sm font-semibold mb-6 border border-blue-100">
+                @if ($periodeAktif)
+                    🚀 Rekrutmen {{ $periodeAktif->nama_periode }} Sedang Berlangsung
+                @else
+                    ⌛ Pendaftaran Saat Ini Sedang Ditutup
+                @endif
             </span>
             <h1 class="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight mb-6 leading-tight">
                 Lanjutkan Cita-Cita Bersama <span class="text-blue-600 bg-clip-text">KIP Kuliah</span>
@@ -164,7 +175,8 @@
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-red-100 shadow-sm border-l-4 border-l-red-500">
                     <h3 class="font-bold text-slate-900">3. Belum Menikah</h3>
-                    <p class="text-sm text-slate-600 mt-2">Belum menikah & sanggup tidak menikah selama menerima program
+                    <p class="text-sm text-slate-600 mt-2">Belum menikah & sanggup tidak menikah selama menerima
+                        program
                         KIP.</p>
                 </div>
                 <div class="bg-white p-6 rounded-xl border border-red-100 shadow-sm border-l-4 border-l-red-500">
@@ -176,7 +188,8 @@
         </div>
     </section>
 
-    <section id="kriteria-saw" class="py-16 bg-white">
+
+    <section id="kriteria-penilaian" class="py-16 bg-white">
         <div class="max-w-7xl mx-auto px-4">
             <div class="flex flex-col lg:flex-row gap-12 items-start">
 
@@ -221,17 +234,18 @@
                             <span class="text-xs bg-green-200 text-green-800 px-2 py-1 rounded font-bold">Benefit •
                                 15%</span>
                         </div>
-                        <p class="text-sm text-blue-700">Pemilik KIP, KKS, atau KJP menjadi skala prioritas
-                            tertinggi.</p>
+                        <p class="text-sm text-blue-700">Pemilik KIP, KKS, KJP, PKH, atau terdaftar di DTKS menjadi
+                            prioritas utama.</p>
                     </div>
 
-                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100 shadow-sm sm:col-span-2">
                         <div class="flex justify-between items-center mb-2">
-                            <h4 class="font-bold text-blue-900">Kondisi Khusus (C5)</h4>
+                            <h4 class="font-bold text-blue-900">Kondisi Khusus & Afirmasi (C5)</h4>
                             <span class="text-xs bg-green-200 text-green-800 px-2 py-1 rounded font-bold">Benefit •
                                 10%</span>
                         </div>
-                        <p class="text-sm text-blue-700">Prioritas tambahan bagi mahasiswa Yatim/Piatu.</p>
+                        <p class="text-sm text-blue-700">Prioritas bagi Yatim/Piatu, Disabilitas, Daerah 3T/OAP,
+                            Terdampak Bencana/Konflik, Ortu PHK/Lapas, dan Anak PMI Perbatasan.</p>
                     </div>
 
                     <div class="p-4 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
@@ -244,7 +258,7 @@
                         </p>
                     </div>
 
-                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100 shadow-sm sm:col-span-2">
+                    <div class="p-4 bg-blue-50 rounded-lg border border-blue-100 shadow-sm">
                         <div class="flex justify-between items-center mb-2">
                             <h4 class="font-bold text-blue-900">Nilai Kepesantrenan (C7)</h4>
                             <span class="text-xs bg-green-200 text-green-800 px-2 py-1 rounded font-bold">Benefit •
